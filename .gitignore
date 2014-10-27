@@ -1,0 +1,6 @@
+/ElasticsearchTests/ElasticsearchTests/bin
+/ElasticsearchTests/ElasticsearchTests/obj
+/ElasticsearchTests/packages
+/ElasticsearchTests/*.suo
+/ElasticsearchTests/*.ncrunchsolution
+/ElasticsearchTests/*.user
