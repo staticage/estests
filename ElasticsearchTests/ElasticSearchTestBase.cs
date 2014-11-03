@@ -13,17 +13,14 @@ namespace ElasticsearchTests
         [SetUp]
         public void Setup()
         {
-            SetupElasticClient();
+            SetupClient();
         }
 
-        protected void SetupElasticClient()
+        protected void SetupClient()
         {
             var node = new Uri("http://localhost:9200");
 
-            var settings = new ConnectionSettings(
-                node,
-                defaultIndex: "shinetech"
-                );
+            var settings = new ConnectionSettings(uri: node, defaultIndex: "shinetech");
             _client = new ElasticClient(settings);
             _client.DeleteIndex(x => x.Index("shinetech"));
             _client.CreateIndex("shinetech");
@@ -42,7 +39,9 @@ namespace ElasticsearchTests
                 FirstName = Name.First(),
                 LastName = Name.Last(),
                 Email = Internet.Email(),
-                Address = Address.StreetAddress(true)
+                Address = Address.StreetAddress(true),
+                Age = RandomNumber.Next(18,60),
+                About = Lorem.Sentence()
             };
         }
     }

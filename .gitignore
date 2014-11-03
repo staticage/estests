@@ -4,3 +4,7 @@
 /ElasticsearchTests/*.suo
 /ElasticsearchTests/*.ncrunchsolution
 /ElasticsearchTests/*.user
+/ElasticsearchTests/bin
+/ElasticsearchTests/obj
+/packages
+/*.suo

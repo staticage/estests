@@ -60,16 +60,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClusterTests.cs" />
+    <Compile Include="BulkTests.cs" />
+    <Compile Include="DeleteTests.cs" />
     <Compile Include="ElasticSearchTestBase.cs" />
+    <Compile Include="GetTests.cs" />
     <Compile Include="HightlightTests.cs" />
+    <Compile Include="Models\Tweet.cs" />
+    <Compile Include="MoreLikeThisTests.cs" />
     <Compile Include="SearchTests.cs" />
     <Compile Include="IndexingTests.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TermVectorTests.cs" />
+    <Compile Include="UpdateTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ppt.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

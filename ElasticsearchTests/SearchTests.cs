@@ -54,14 +54,14 @@ namespace ElasticsearchTests
         [Test]
         public void SearchByKeyword()
         {
-            //curl -XGET http://localhost:9200/shinetech/employee/_search?pretty -d '
-            //{
-            //    "query" : {
-            //        "match_phrase" : {
-            //            "about" : "rock climbing"
-            //        }
-            //    }
-            //}'
+            //  curl -XGET http://localhost:9200/shinetech/employee/_search?pretty -d '
+            //  {
+            //      "query" : {
+            //          "match_phrase" : {
+            //              "about" : "rock climbing"
+            //          }
+            //      }
+            //  }'
 
             var result = _client.Search<Employee>(s => s
                 .AllIndices()
@@ -78,14 +78,14 @@ namespace ElasticsearchTests
         [Test]
         public void SearchByPharse()
         {
-            //curl -XGET http://localhost:9200/shinetech/employee/_search?pretty -d '
-            //{
-            //    "query" : {
-            //        "match_phrase" : {
-            //            "about" : "rock climbing"
-            //        }
-            //    }
-            //}'
+            //  curl -XGET http://localhost:9200/shinetech/employee/_search?pretty -d '
+            //  {
+            //      "query" : {
+            //          "match_phrase" : {
+            //              "about" : "rock climbing"
+            //          }
+            //      }
+            //  }'
 
             var result = _client.Search<Employee>(s => s
                 .AllIndices()
@@ -102,19 +102,19 @@ namespace ElasticsearchTests
         [Test]
         public void Highlight()
         {
-            //curl -XGET http://localhost:9200/shinetech/employee/_search?pretty -d '
-            //{
-            //    "query" : {
-            //        "match" : {
-            //            "about" : "rock climbing"
-            //        }
-            //    },
-            //    "highlight": {
-            //        "fields" : {
-            //            "about" : {}
-            //        }
-            //    }
-            //}'
+            //  curl -XGET http://localhost:9200/shinetech/employee/_search?pretty -d '
+            //  {
+            //      "query" : {
+            //          "match" : {
+            //              "about" : "rock climbing"
+            //          }
+            //      },
+            //      "highlight": {
+            //          "fields" : {
+            //              "about" : {}
+            //          }
+            //      }
+            //  }'
 
             var highlights = _client.Search<Employee>(s => s
                 .AllIndices()
@@ -133,14 +133,14 @@ namespace ElasticsearchTests
         [Test]
         public void Aggregations()
         {
-            //curl -XGET http://localhost:9200/shinetech/employee/_search?pretty -d '
-            //{
-            //    "aggs": {
-            //    "all_interests": {
-            //      "terms": { "field": "interests" }
+            //  curl -XGET http://localhost:9200/shinetech/employee/_search?pretty -d '
+            //  {
+            //      "aggs": {
+            //      "all_interests": {
+            //        "terms": { "field": "interests" }
+            //      }
             //    }
-            //  }
-            //}'
+            //  }'
 
             var result = _client.Search<Employee>(s => s
                 .AllIndices()
@@ -158,19 +158,19 @@ namespace ElasticsearchTests
         [Test]
         public void MultipleAggregations()
         {
-            //curl -XGET http://localhost:9200/shinetech/employee/_search?pretty -d '
-            //{
-            //    "aggs" : {
-            //        "all_interests" : {
-            //            "terms" : { "field" : "interests" },
-            //            "aggs" : {
-            //                "avg_age" : {
-            //                    "avg" : { "field" : "age" }
-            //                }
-            //            }
-            //        }
-            //    }
-            //}'
+            //  curl -XGET http://localhost:9200/shinetech/employee/_search?pretty -d '
+            //  {
+            //      "aggs" : {
+            //          "all_interests" : {
+            //              "terms" : { "field" : "interests" },
+            //              "aggs" : {
+            //                  "avg_age" : {
+            //                      "avg" : { "field" : "age" }
+            //                  }
+            //              }
+            //          }
+            //      }
+            //  }'
 
             var request = new SearchRequest
             {
