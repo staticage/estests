@@ -6,6 +6,16 @@ Elasticsearch提供了全文搜索能力、多语言支持、专门的查询语�
 Elasticsearch支持RESTful的API，可以使用JSON通过HTTP调用它的各种功能，包括搜索、分析与监控。此外，它还为Java、PHP、Perl、Python以及Ruby等各种语言提供了原生的客户端类库。
 
 
+使用案例
+Wikipedia uses Elasticsearch to provide full text search with highlighted search snippets, and search-as-you-type and did-you-mean suggestions.
+
+The Guardian uses Elasticsearch to combine visitor logs with social network data to provide real-time feedback to their editors about the public’s response to new articles.
+
+StackOverflow combines full text search with geolocation queries and uses more-like-this to find related questions and answers.
+
+GitHub uses Elasticsearch to query 130 billion lines of code.
+
+
 下载及安装
 1. 安装JAVA 并设置JAVA_HOME环境变量
 
