@@ -33,11 +33,11 @@ namespace ElasticsearchTests
             {
                 About = @"The more_like_this_field query is the same as the more_like_this query, except it runs against a single field. It provides nicer query DSL over the generic more_like_this query, and support typed fields query (automatically wraps typed fields with type filter to match only on the specific type)."
             };
-
+            _client.Map<Employee>(mapping => mapping);
             _client.Index(employee, i => i.Refresh());
 
             var result = _client.Suggest<Employee>(suggest => suggest
-                .GlobalText("fiel")
+                .GlobalText("fiele")
                 .Term("test", term => term.OnField("about")));
             result.Suggestions.Count.Should().BeGreaterThan(0);
         }

@@ -28,10 +28,10 @@ namespace ElasticsearchTests
         public void RealtimeIndexing()
         {
             // curl -XPOST localhost:9200/_refresh
-            // curl -XPOST localhost:9200/shinetech/_refresh
+            // curl -XPOST localhost:9200/shinetech/employee/_refresh
 
-            _client.Index(GenerateEmployee());
-            _client.Refresh(x => x.Index<Employee>());
+            _client.Index(GenerateEmployee(),i=> i.Refresh());
+           
 
             Assert.AreEqual(_client.Count<Employee>().Count, 1);
         }
@@ -66,7 +66,7 @@ namespace ElasticsearchTests
                 .RefreshInterval("30s"));
 
             var indexSetting = _client.GetIndexSettings(get => get.Index<Employee>()).IndexSettings;
-
+            
             indexSetting.Settings["refresh_interval"].Should().Be("30s");
         }
     }

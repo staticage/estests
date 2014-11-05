@@ -30,7 +30,8 @@ namespace ElasticsearchTests
             var result = _client.Search<Employee>(s => s
                 .AllIndices()
                 .AllTypes()
-                .SortAscending(x => x.FirstName)
+                .SortAscending("firstName")
+                .SortDescending("lastName")
             );
 
             result.Documents.ToList().Should().BeInAscendingOrder(x => x.FirstName);
@@ -54,7 +55,7 @@ namespace ElasticsearchTests
         [Test]
         public void SearchByKeyword()
         {
-            //  curl -XGET http://localhost:9200/shinetech/employee/_search?pretty -d '
+            //  curl -XGET http://localhost:9200/shinetech/_search?pretty -d '
             //  {
             //      "query" : {
             //          "match_phrase" : {
@@ -136,12 +137,12 @@ namespace ElasticsearchTests
             //  curl -XGET http://localhost:9200/shinetech/employee/_search?pretty -d '
             //  {
             //      "aggs": {
-            //      "all_interests": {
-            //        "terms": { "field": "interests" }
+            //          "all_interests": {
+            //              "terms": { "field": "interests" }
+            //          }
             //      }
-            //    }
             //  }'
-
+            
             var result = _client.Search<Employee>(s => s
                 .AllIndices()
                 .AllTypes()
